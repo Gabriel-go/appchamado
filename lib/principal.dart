@@ -94,11 +94,11 @@ Widget menuLateral({ctx}) {
         ListTile(
           leading: Icon(Icons.account_circle),
           title: Text('Perfil'),
+          onTap: () => {Navigator.pushNamed(ctx, '/person')},
         ),
         ListTile(
           leading: Icon(Icons.bar_chart),
           title: Text('Relatorios'),
-          onTap: () => {Navigator.pushNamed(ctx, '/person')},
         ),
         ListTile(
           leading: Icon(Icons.settings),

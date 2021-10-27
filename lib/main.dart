@@ -1,4 +1,6 @@
+import 'package:appchamado/login.dart';
 import 'package:appchamado/person.dart';
+import 'package:appchamado/personEdit.dart';
 import 'package:appchamado/principal.dart';
 import 'package:flutter/material.dart';
 import 'Cores.dart';
@@ -22,10 +24,12 @@ class _MyAppState extends State<MyApp> {
           secondaryHeaderColor: Colors.amber,
           visualDensity: VisualDensity.adaptivePlatformDensity),
       routes: {
+        '/login': (context) => Login(),
         '/home': (context) => principal(),
         '/person': (context) => Person(),
+        '/personEdit': (context) => PersonEdit(),
       },
-      initialRoute: '/home',
+      initialRoute: '/login',
     );
   }
 }
