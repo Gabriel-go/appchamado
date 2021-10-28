@@ -10,7 +10,7 @@ abstract class UserControllerBase with Store {
   String senha = "";
   String logado = "";
 
-  var jsonUser = [
+  var _jsonUser = [
     {"id": 1, "nome": "gabriel", "email": "gabriel@gmail.com", "senha": "123"},
     {"id": 2, "nome": "jose", "email": "jose@gmail.com", "senha": "123"},
     {"id": 3, "nome": "marcos", "email": "marcos@gmail.com", "senha": "123"}
@@ -22,9 +22,9 @@ abstract class UserControllerBase with Store {
   }
 
   bool _buscaLogin(String pLogin, String pSenha) {
-    for (int i = 0; i < jsonUser.length; i++) {
-      if (pLogin == jsonUser[i]['email'].toString() &&
-          pSenha == jsonUser[i]['senha'].toString()) {
+    for (int i = 0; i < _jsonUser.length; i++) {
+      if (pLogin == _jsonUser[i]['email'].toString() &&
+          pSenha == _jsonUser[i]['senha'].toString()) {
         login = pLogin;
         senha = pSenha;
         return true;
