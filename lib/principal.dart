@@ -19,6 +19,7 @@ class principal extends StatelessWidget {
 AppBar barraSuperior() {
   return AppBar(
     title: const Text('Meu Chamados'),
+    backgroundColor: corPrincipal,
     bottom: const TabBar(
       tabs: <Widget>[
         Tab(
