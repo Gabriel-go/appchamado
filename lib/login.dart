@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Cores.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'controller/userController.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -42,6 +44,7 @@ class _LoginState extends State<Login> {
   }
 
   Container _camposLogin(ctx) {
+    final userController = UserController();
     String senha = "";
     String email = "";
     final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -70,7 +73,7 @@ class _LoginState extends State<Login> {
                     });
                   },
                   onChanged: (vl) {
-                    print('Texto $vl');
+                    //print('Texto $vl');
                   },
                 ),
                 TextFormField(
@@ -98,8 +101,9 @@ class _LoginState extends State<Login> {
                       IconButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            // Process data.
-                            Navigator.pushNamed(ctx, '/home');
+                            _formKey.currentState!.save();
+                            if (userController.logar(email, senha))
+                              Navigator.pushNamed(ctx, '/home');
                           }
                         },
                         icon: Icon(Icons.login),
