@@ -1,6 +1,6 @@
 # appchamado
 
-A new Flutter project.
+Sitema de chamados para fins de aprendizado do framework Flutter e a biblioteca de gerenciamento de estado.
 
 ## Getting Started
 
