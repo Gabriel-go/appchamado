@@ -28,11 +28,11 @@ mixin _$UserController on UserControllerBase, Store {
       ActionController(name: 'UserControllerBase');
 
   @override
-  bool logar(String pLogin, String pSenha) {
+  Future<bool> cadastrar(String pLogin, String pSenha) {
     final _$actionInfo = _$UserControllerBaseActionController.startAction(
-        name: 'UserControllerBase.logar');
+        name: 'UserControllerBase.cadastrar');
     try {
-      return super.logar(pLogin, pSenha);
+      return super.cadastrar(pLogin, pSenha);
     } finally {
       _$UserControllerBaseActionController.endAction(_$actionInfo);
     }

@@ -135,13 +135,37 @@ class _LoginState extends State<Login> {
                     Container(
                       width: 250,
                       decoration: BoxDecoration(
+                          color: Colors.blue.shade700,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(5),
+                          )),
+                      child: TextButton(
+                          child: Text(
+                            "Cadastrar",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              _formKey.currentState!.save();
+                              userController.logar(email, senha);
+                            }
+                          }),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      width: 250,
+                      decoration: BoxDecoration(
                           color: Colors.red.shade700,
                           borderRadius: BorderRadius.all(
                             Radius.circular(5),
                           )),
                       child: TextButton(
                           child: Text(
-                            "Logar",
+                            "Sair",
                             style: TextStyle(
                               color: Colors.white,
                             ),

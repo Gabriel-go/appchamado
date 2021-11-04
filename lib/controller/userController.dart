@@ -1,4 +1,6 @@
+import 'package:appchamado/login.dart';
 import 'package:mobx/mobx.dart';
+import '../firebase/signUpServices.dart';
 part 'userController.g.dart';
 
 class UserController = UserControllerBase with _$UserController;
@@ -17,7 +19,17 @@ abstract class UserControllerBase with Store {
   ];
 
   @action
+  Future<bool> cadastrar(String pLogin, String pSenha) {
+    final loginFirebase = SignUpService();
+
+    return loginFirebase.signUp(pLogin, pSenha);
+  }
+
   bool logar(String pLogin, String pSenha) {
+    final loginFirebase = SignUpService();
+
+    loginFirebase.signIn(pLogin, pSenha);
+
     return _buscaLogin(pLogin, pSenha);
   }
 
