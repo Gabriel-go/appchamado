@@ -7,6 +7,7 @@ class Person extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Usuarios'),
+        backgroundColor: corPrincipal,
       ),
       body: Column(
         children: [

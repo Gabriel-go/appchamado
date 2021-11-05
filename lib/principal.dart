@@ -73,17 +73,39 @@ Widget menuLateral({ctx}) {
       padding: EdgeInsets.zero,
       children: <Widget>[
         DrawerHeader(
-          decoration: BoxDecoration(
-            color: corPrincipal,
-          ),
-          child: Text(
-            'Chamados Aguia',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
+            decoration: BoxDecoration(
+              color: corPrincipal,
             ),
-          ),
-        ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                /*Text(
+                  'Meu Chamado',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),*/
+                Icon(
+                  Icons.person,
+                  size: 100,
+                  color: Colors.white70,
+                ),
+                Text(
+                  "Egn: Gabriel Alexandre",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  "GabrielAlexandre@gmail.com",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
+            )),
         ListTile(
           leading: Icon(Icons.message),
           title: Text('Chamados'),

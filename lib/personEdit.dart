@@ -16,94 +16,139 @@ class _PersonEditState extends State<PersonEdit> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Edição de Usuario'),
+        backgroundColor: corPrincipal,
       ),
       body: Container(
         padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
-                      hintText: 'Informe o Email',
-                    ),
-                    validator: (String? value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Informe um email valido';
-                      }
-                      return null;
-                    },
-                    onSaved: (vl) {
-                      setState(() {
-                        email = vl.toString();
-                      });
-                    },
-                    onChanged: (vl) {
-                      print('Texto $vl');
-                    },
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: 'Nome',
-                      hintText: 'Informe seu nome',
-                    ),
-                    validator: (String? value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Campo nao pode ser vazio';
-                      }
-                      return null;
-                    },
-                    onSaved: (vl) {
-                      setState(() {
-                        nome = vl.toString();
-                      });
-                    },
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: 'Senha',
-                      hintText: 'Informe uma senha',
-                    ),
-                    validator: (String? value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Campo nao pode ser vazio';
-                      }
-                      return null;
-                    },
-                    onSaved: (vl) {
-                      setState(() {
-                        senha = vl.toString();
-                      });
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            //crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                  hintText: 'Informe o Email',
+                ),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Informe um email valido';
+                  }
+                  return null;
+                },
+                onSaved: (vl) {
+                  setState(() {
+                    email = vl.toString();
+                  });
+                },
+                onChanged: (vl) {
+                  print('Texto $vl');
+                },
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Nome',
+                  hintText: 'Informe seu nome',
+                ),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Campo nao pode ser vazio';
+                  }
+                  return null;
+                },
+                onSaved: (vl) {
+                  setState(() {
+                    nome = vl.toString();
+                  });
+                },
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Senha',
+                  hintText: 'Informe uma senha',
+                ),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Campo nao pode ser vazio';
+                  }
+                  return null;
+                },
+                onSaved: (vl) {
+                  setState(() {
+                    senha = vl.toString();
+                  });
+                },
+              ),
+              Row(
+                //mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Expanded(
                     child: IconButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          // Process data.
                           _formKey.currentState!.save();
-                          print('$nome');
                         }
                       },
-                      icon: Icon(Icons.save_alt_outlined),
+                      icon: Icon(Icons.check_circle),
                       iconSize: 50,
                       color: Colors.green,
+                    ),
+                  ),
+                  Expanded(
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(Icons.close_outlined),
+                      iconSize: 50,
+                      color: Colors.red,
                     ),
                   )
                 ],
               ),
-            ),
-            Text("Email: $email"),
-            Text("Nome: $nome"),
-            Text("Senha: $senha"),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 }
+
+/*
+Center(
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
+                          child: IconButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                // Process data.
+                                _formKey.currentState!.save();
+                                print('$nome');
+                              }
+                            },
+                            icon: Icon(Icons.check_circle),
+                            iconSize: 50,
+                            color: Colors.green,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
+                          child: IconButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                // Process data.
+                                _formKey.currentState!.save();
+                                print('$nome');
+                              }
+                            },
+                            icon: Icon(Icons.check_circle),
+                            iconSize: 50,
+                            color: Colors.green,
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+*/
