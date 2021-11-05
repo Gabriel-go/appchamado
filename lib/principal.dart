@@ -109,6 +109,7 @@ Widget menuLateral({ctx}) {
         ListTile(
           leading: Icon(Icons.message),
           title: Text('Chamados'),
+          onTap: () => {Navigator.pushNamed(ctx, '/chamado')},
         ),
         ListTile(
           leading: Icon(Icons.person),

@@ -23,7 +23,6 @@ class _PersonEditState extends State<PersonEdit> {
         child: Form(
           key: _formKey,
           child: Column(
-            //crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextFormField(
                 decoration: const InputDecoration(

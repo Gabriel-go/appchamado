@@ -1,3 +1,4 @@
+import 'package:appchamado/chamado.dart';
 import 'package:appchamado/login.dart';
 import 'package:appchamado/person.dart';
 import 'package:appchamado/personEdit.dart';
@@ -28,6 +29,7 @@ class _MyAppState extends State<MyApp> {
         '/home': (context) => principal(),
         '/person': (context) => Person(),
         '/personEdit': (context) => PersonEdit(),
+        '/chamado': (context) => Chamado(),
       },
       initialRoute: '/login',
     );
