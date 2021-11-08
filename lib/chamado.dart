@@ -10,6 +10,7 @@ class _ChamadoState extends State<Chamado> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: corPrincipal,
       appBar: appBarChamado(),
       body: listaChamados(),
       floatingActionButton: FloatingActionButton(
@@ -24,9 +25,15 @@ class _ChamadoState extends State<Chamado> {
 
   AppBar appBarChamado() {
     return AppBar(
-      title: TextField(
+      title: Container(
+        padding: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: corSecundaria,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: TextField(
           decoration: InputDecoration.collapsed(
-            hintText: "Buscar Chamado",
+            hintText: "Buscar chamados",
             hintStyle: TextStyle(
               color: Colors.white,
             ),
@@ -37,7 +44,9 @@ class _ChamadoState extends State<Chamado> {
           onSubmitted: (String value) async {
             //pegando o valor para pesquisar
             print(value.toString());
-          }),
+          },
+        ),
+      ),
       backgroundColor: corPrincipal,
       actions: [
         IconButton(
@@ -45,7 +54,7 @@ class _ChamadoState extends State<Chamado> {
             addFiltro();
           },
           icon: Icon(
-            Icons.search,
+            Icons.menu,
           ),
         ),
       ],
@@ -72,29 +81,36 @@ class _ChamadoState extends State<Chamado> {
     );
   }
 
-  ListView listaChamados() {
+  Container listaChamados() {
     String src =
         "https://www.iconpacks.net/icons/2/free-7-24-customer-support-icon-1719-thumb.png";
-    return ListView(
-      children: [
-        SizedBox(
-          height: 10,
-        ),
-        for (int i = 0; i < 10; i++)
-          ListTile(
-            leading: Image(
-              image: NetworkImage(src),
-            ),
-            title: Text('ID: ${i} - Descriçãos do chamado'),
-            subtitle:
-                Text('Uma breve descrição do que esta acontecendo la dentro'),
-            trailing: IconButton(
-              icon: Icon(Icons.list_sharp),
-              color: Colors.blue,
-              onPressed: () {},
-            ),
+    return Container(
+      decoration: BoxDecoration(
+        color: corFundo,
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(16.0), topRight: Radius.circular(16.0)),
+      ),
+      child: ListView(
+        children: [
+          SizedBox(
+            height: 10,
           ),
-      ],
+          for (int i = 0; i < 10; i++)
+            ListTile(
+              leading: Image(
+                image: NetworkImage(src),
+              ),
+              title: Text('ID: ${i} - Descriçãos do chamado'),
+              subtitle:
+                  Text('Uma breve descrição do que esta acontecendo la dentro'),
+              trailing: IconButton(
+                icon: Icon(Icons.list_sharp),
+                color: Colors.blue,
+                onPressed: () {},
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
