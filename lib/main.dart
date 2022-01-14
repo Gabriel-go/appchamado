@@ -1,4 +1,5 @@
 import 'package:appchamado/chamado.dart';
+import 'package:appchamado/chamadoEdit.dart';
 import 'package:appchamado/login.dart';
 import 'package:appchamado/person.dart';
 import 'package:appchamado/personEdit.dart';
@@ -23,6 +24,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
           primaryColor: corPrincipal,
           secondaryHeaderColor: Colors.amber,
+          backgroundColor: corPrincipal,
           visualDensity: VisualDensity.adaptivePlatformDensity),
       routes: {
         '/login': (context) => Login(),
@@ -30,6 +32,7 @@ class _MyAppState extends State<MyApp> {
         '/person': (context) => Person(),
         '/personEdit': (context) => PersonEdit(),
         '/chamado': (context) => Chamado(),
+        '/chamadoEdit': (context) => ChamadoEdit(),
       },
       initialRoute: '/login',
     );

@@ -15,7 +15,7 @@ class _ChamadoState extends State<Chamado> {
       body: listaChamados(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Add your onPressed code here!
+          Navigator.pushNamed(context, '/chamadoEdit');
         },
         child: const Icon(Icons.add),
         backgroundColor: corPrincipal,
